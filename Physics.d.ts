@@ -1,2 +1,1 @@
-declare namespace Physics {
-}
+declare namespace Physics {}

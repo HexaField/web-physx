@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "format": "prettier --write",
-    "lint": "prettier --check",
+    "format": "prettier --write \"**/*.{ts,js}\" ",
+    "lint": "prettier --check \"**/*.{ts,js}\" ",
     "test": "jest"
   },
   "pre-commit": [
@@ -32,11 +32,12 @@
     "babel-plugin-dynamic-import-node": "2.3.3",
     "babel-plugin-transform-import-meta": "2.0.0",
     "babel-preset-vite": "1.0.4",
+    "prettier": "2.4.0",
     "ts-jest": "27.0.5",
     "ts-node": "^10.2.1",
     "typescript": "4.4.3"
   },
   "dependencies": {
     "web-worker": "^1.1.0"
-  },
+  }
 }

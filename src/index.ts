@@ -2,7 +2,7 @@ import * as Comlink from './comlink/comlink'
 import Worker from 'web-worker'
 import path from 'path'
 
-export async function createPhysXWorker () {
+export async function createPhysXWorker() {
   const endpoint = new Worker(path.resolve(__dirname, './worker.js'))
   const worker = Comlink.wrap(endpoint)
   await new Promise((resolve) => {
@@ -15,11 +15,16 @@ export async function createPhysXWorker () {
   //@ts-ignore
   globalThis.PhysX = worker.PhysX
 
-  return { 
+  return {
     update: () => {
       //@ts-ignore
       worker.Physics.update()
       Comlink.sendQueue(endpoint)
+    },
+    dispose: () => {
+      endpoint.terminate()
+      delete globalThis.Physics
+      delete globalThis.PhysX
     }
   }
 }

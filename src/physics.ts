@@ -2,13 +2,9 @@ import * as Comlink from './comlink/comlink'
 import PHYSX from './physx.release.node.js'
 
 class Physics {
-  constructor() {
+  constructor() {}
 
-  }
-
-  update() {
-    
-  }
+  update() {}
 }
 
 const physicsInterface = {
@@ -19,6 +15,6 @@ const physicsInterface = {
     globalThis.PhysX = PhysX
     physicsInterface.PhysX = PhysX
   }
-}  
+}
 
 Comlink.expose(physicsInterface)

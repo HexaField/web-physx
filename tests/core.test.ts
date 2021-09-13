@@ -9,5 +9,6 @@ describe('Proxy', () => {
     const version = await PhysX.PX_PHYSICS_VERSION
     expect(version).toBe(67174656)
     clearInterval(interval)
+    worker.dispose()
   })
 })
